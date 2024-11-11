@@ -9,8 +9,8 @@
 <body class="day-theme" id="content">
     <header id="header" style=" background-color: black;">
         <nav class="maincontainer" style="justify-content: space-between; display: flex; padding: 20px; align-items: center; align-content: center;">
-            <div id="navMenu">
-                <button class="icon"><img src="img/8870073_menu_right_arrows_up_icon.png" style="width: 26px; height: 26px; vertical-align: middle;" alt=""></button>
+            <div id="navMenu" class="navMenu">
+                <button class="icon" onclick="toggleMenu()"><img src="img/8870073_menu_right_arrows_up_icon.png" style="width: 26px; height: 26px; vertical-align: middle;" alt=""></button>
                 <a class="a" href="page1.html">Home</a>
                 <a class="a" href="#foryou">For you</a>
                 <a class="a" href="#subscriptions">Subscriptions</a>
@@ -26,41 +26,46 @@
                 <a class="a" href="background.html">changeBG</a>
             </div>
             <div>
-                <button id="refreshBtn" class="icon" style="padding: 0;"><img src="img/refresh-page-option.png" style="width: 13px; height: 13px; vertical-align: middle;" alt=""></button>
-                <a class="a" href="weather.html" id="weatherDisplay" style="vertical-align: middle;">24+ <img id="weatherIcon" src="img/cloudy.png" alt="weather-icon" style="width: 26px; height: 26px; vertical-align: text-bottom; padding-right: 30px;"></a>
-                <button id="themeChange" class="icon"><img id="themeIcon" src="img/daylight.png" style="width: 26px; height: 26px; vertical-align: middle;" alt=""></button>
-                <button class="icon" id="search-btn">
+                <button class="icon refresh-btn" style="padding: 0;"><img src="img/refresh-page-option.png" style="width: 13px; height: 13px; vertical-align: middle;" alt=""></button>
+                <a class="a weather-display" href="weather.html" style="vertical-align: middle;"> 24+ <img class="weather-icon-img" src="img/cloudy.png" alt="weather-icon" style="width: 26px; height: 26px; vertical-align: text-bottom; padding-right: 30px;"></a>
+                <button class="icon theme-change"><img class="theme-icon" src="img/daylight.png" style="width: 26px; height: 26px; vertical-align: middle;" alt=""></button>
+                <button class="icon search-btn" id="search-btn">
                     <img src="img/9025828_magnifying_glass_icon.png" style="width: 26px; height: 26px; vertical-align: middle; padding-right: 20px;" alt="">
                 </button>
-                <button id="show-login" style="border: 1px solid white; background-color: black; color: white; padding-left: 20px; padding-top: 5px; padding-bottom: 5px; padding-right: 20px;">Login</button>
+                <button id="show-login" class="log-button">Sign In</button>
 
-                <div id="login-overlay">
-                    <div id="login-container">
-                        <h1>Login Page</h1>
-                        <form id="login-form">
+                <div id="login-overlay" class="login-overlay" style="display:none;">
+                    <div id="login-container" class="login-container">
+                        <h1 id="form-title" class="form-title">Register / Login</h1>
+                        
+                        <form id="auth-form" class="auth-form">
                             <label for="username">Email:</label>
-                            <input  id="username" name="username">
-                            <div id="email-error" class="error"></div>
-            
+                            <input id="username" class="username" name="username" required>
+                            <div id="email-error" class="error email-error"></div>
+
                             <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" required>
-                            <div id="password-error" class="error"></div>
-            
-                            <button type="submit">Enter</button>
+                            <input type="password" id="password" class="password" name="password" required>
+                            <div id="password-error" class="error password-error"></div>
+
+                            <div style="display: flex; justify-content: center; gap: 10px;">
+                                <button type="submit" id="submit-button" class="submit-button">Register In</button>
+                                <button type="button" id="switch-form" class="switch-form">Login</button>
+                            </div>
                         </form>
                     </div>
                 </div>
-                <div id="logout-overlay">
-                    <div id="logout-container">
-                        <h1>Logout Page</h1>
-                        <button id="logout-button">Log out</button>
+
+                <div id="logout-overlay" class="logout-overlay">
+                    <div id="logout-container" class="logout-container">
+                        <h1>Are you sure you want to log out?</h1>
+                        <button id="logout-button" class="logout-button">Log out</button>
                     </div>
                 </div>
             </div>
         </nav>
-        <input type="text" style="display: none;" id="search-input"  placeholder="Search...">
+        <input type="text" style="display: none;" id="search-input" class="search-input" placeholder="Search...">
     </header>
-    <div id="searched-items" style="display: none; gap: 30px;"></div>
+    <div id="searched-items" class="searched-items" style="display: none; gap: 30px;"></div>
 
     <section class="maincontainer" style="border-bottom: 4px solid black;padding-bottom: 20px;">
         <h2 class="bigtext">BREAKING KAZAKHSTAN NEWS</h2>

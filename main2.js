@@ -110,58 +110,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// accordion
- const toggleButton = document.getElementById('toggleButton');
- const accordionSection = document.getElementById('accordionSection');
-
- toggleButton.addEventListener('click', function() {
-     if (accordionSection.style.maxHeight === '0px' || !accordionSection.style.maxHeight) {
-        accordionSection.style.maxHeight = accordionSection.scrollHeight + 'px'; 
-        toggleButton.textContent = 'Hide';
-    } else {
-        accordionSection.style.maxHeight = '0px'; 
-        toggleButton.textContent = 'See also';
-    }
- });
-
- const toggleText = document.getElementById('toggleText');
- const accordionSection2 = document.getElementById('accordionSection2');
- toggleText.addEventListener('click', function() {
-    if (accordionSection2.style.maxHeight === '0px' || !accordionSection2.style.maxHeight) {
-       accordionSection2.style.maxHeight = accordionSection2.scrollHeight + 'px'; 
-       toggleText.textContent = 'Hide';
-   } else {
-       accordionSection2.style.maxHeight = '0px'; 
-       toggleText.textContent = 'See also';
-   }
-});
-
-//date and time
-function updateDateTime() {
-    const now = new Date();
-    const options = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
-        hour: 'numeric', 
-        minute: 'numeric', 
-        hour12: false 
-    };
-    const formattedDateTime = now.toLocaleString('en-GB', options);
-    document.getElementById('dateTimeBlock').innerText = formattedDateTime;
-}
-
-setInterval(updateDateTime, 1000);
-updateDateTime();
-
 // Day/Night theme
-const changeTheme = document.querySelector('.theme-change'); // Changed to class
-const themeIcon = document.querySelector('.theme-icon'); // Changed to class
+const changeTheme = document.querySelector('.theme-change'); 
+const themeIcon = document.querySelector('.theme-icon'); 
 const header = document.querySelector('header');
 const body = document.body;
 const imgs = document.querySelectorAll('img');
 
-// Localstorage for theme preference
+// Localstorage
 const savedTheme = localStorage.getItem('theme');
 applyTheme(savedTheme);
 
@@ -226,7 +182,6 @@ if (refreshBtn) {
             });
     });
 }
-
 
 // nav by arrows
 const navMenu = document.getElementById('navMenu');
@@ -309,16 +264,14 @@ checkGoogleTranslateLoaded();
 
 // Dynamic Data
 const data = {
-    media: "Media",
+    entertainment: "Entertainment",
     sport: "Sport",
     bussiness: "Business",
-    music: "Music",
-    techno: "Techno",
-    science: "Science"
+    health: "Health",
+    techno: "Techno"
 };
-
 // Search
-const titles = document.querySelectorAll('.section-title');
+const titles = document.querySelectorAll('.section-title2');
 titles.forEach((title) => {
     const type = title.getAttribute('data-type');
     if (data[type]) { 
@@ -345,7 +298,7 @@ document.querySelector('.search-btn').addEventListener('click', () => {
         titles.forEach((title) => {
             const type = title.getAttribute('data-type');
             if (type && data[type]) {
-                title.innerHTML = data[type]; 
+                title.innerHTML = data[type];
             }
         });
 
@@ -396,7 +349,7 @@ document.addEventListener('keydown', (event) => {
 
 function resetSearch() {
     const inputSearch = document.querySelector('.search-input');
-    inputSearch.value = ''; 
+    inputSearch.value = '';
     hasSearched = false;
     isSearchOpened = false;
     

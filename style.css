@@ -253,7 +253,7 @@ button {
     }
   }
 
-#login-overlay {
+  #login-overlay, #logout-overlay {
     position: fixed;
     z-index: 998;
     top: 0;
@@ -261,36 +261,13 @@ button {
     width: 100%;
     height: 100%;
     color: #000000;
-    background-color: rgba(0, 0, 0, 0.7); 
-    display: none; 
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
     justify-content: center;
     align-items: center;
 }
-#logout-overlay {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding-top: 400px;
-    padding-bottom: 100%;
-    height: fit-content;
-    color: #000000;
-    background-color: rgba(0, 0, 0, 0.7); 
-    display: none; 
-    justify-content: center;
-    align-items: center;
-}
-#logout-container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    margin: auto;
-    width: 400px;
-}
-#login-container {
+
+#logout-container, #login-container {
     background-color: white;
     padding: 40px;
     border-radius: 8px;
@@ -359,4 +336,37 @@ button.icon {
 #logout-overlay{
     position: absolute;
     display: none;
+}
+
+#navMenu .a.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.log-button {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    padding: 5px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.log-button:hover {
+    background-color: white;
+    color: black; 
+    border-color: black; 
+}
+
+.texiosis{
+    background-color: #1f6f8c; padding-left: 110px; padding-right: 110px; border-top-left-radius: 0px; border-top-right-radius: 0px;
+}
+
+.highlight {
+    background-color: yellow; /* Adjust the color to your preference */
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 2px;
+    display: inline;
 }
